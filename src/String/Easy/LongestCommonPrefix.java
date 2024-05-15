@@ -1,4 +1,4 @@
-package Arrays.Easy;
+package String.Easy;
 
 //Given an array of N strings, find the longest common prefix among all strings present in the array.
 //
