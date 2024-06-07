@@ -11,14 +11,14 @@ package Arrays.Medium;
 //        9
 public class kadaneAlgo {
     public static void main(String[] args) {
-        long[] arr={2,5,7,-2,-5,4};
+        long[] arr={1,2,3,-2,5};
         int n=arr.length;
         long cs=0;
         long ms=0;
-        long largestNegative=Integer.MIN_VALUE;
+        long smallestNegative=Integer.MIN_VALUE;
         for(int i=0;i<n;i++){
             if(arr[i]<0){
-                largestNegative=Math.max(largestNegative,arr[i]);
+                smallestNegative=Math.max(smallestNegative,arr[i]);
             }
             cs=cs+arr[i];
             if(cs<0l){
@@ -27,7 +27,7 @@ public class kadaneAlgo {
             ms=Math.max(cs,ms);
         }
         if(ms==0l){
-            System.out.println(largestNegative);
+            System.out.println(smallestNegative);
         }
         else
             System.out.println(ms);
