@@ -7,7 +7,7 @@ public class IntersectionOfLinkedLists {
     public static void main(String[] args) {
         ListOperations i = new ListOperations();
         Node head = null;
-        Node head2= null;
+        Node head2 = null;
         head = i.addLast(1, head);
         head = i.addLast(2, head);
         head = i.addLast(3, head);
@@ -22,7 +22,7 @@ public class IntersectionOfLinkedLists {
         head2 = i.addLast(6, head2);
         head2 = i.addLast(7, head2);
 
-        System.out.println(intersectioOfList(head,head2));
+        System.out.println(intersectioOfList(head, head2));
     }
 
     private static int intersectioOfList(Node head1, Node head2) {
@@ -38,35 +38,35 @@ public class IntersectionOfLinkedLists {
                 head1 = head1.next;
                 jump++;
             }
-        } else  {
+        } else {
             while (jump <= diff) {
                 head2 = head2.next;
                 jump++;
             }
         }
 
-        System.out.println(head1.data+" " +head2.data);
+        System.out.println(head1.data + " " + head2.data);
         return findInter(head1, head2);
     }
 
-        static int length(Node head){
-            int c=0;
-            while(head!=null){
-                c++;
-                head=head.next;
-            }
-            return c;
+    static int length(Node head) {
+        int c = 0;
+        while (head != null) {
+            c++;
+            head = head.next;
         }
+        return c;
+    }
 
-        static int findInter(Node head1, Node head2){
-            while(head1!=null && head2!=null){
-                if(head1.data==head2.data){
-                    return head1.data;
-                }
-                head1=head1.next;
-                head2=head2.next;
+    static int findInter(Node head1, Node head2) {
+        while (head1 != null && head2 != null) {
+            if (head1.data == head2.data) {
+                return head1.data;
             }
-            return -1;
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+        return -1;
 
     }
 }

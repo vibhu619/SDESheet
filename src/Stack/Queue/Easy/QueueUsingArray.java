@@ -2,15 +2,16 @@ package Stack.Queue.Easy;
 
 
 class Queue {
+    int[] queue;
     private int front, rear;
     private int capacity;
-    int[] queue;
 
-    Queue(int c){
-        front=rear=0;
-        capacity=c;
-        queue=new int[capacity];
+    Queue(int c) {
+        front = rear = 0;
+        capacity = c;
+        queue = new int[capacity];
     }
+
     //rear will always be at index after last element
     public void Enqueue(int x) {
         if (rear == capacity) {
@@ -21,21 +22,21 @@ class Queue {
         rear++;
     }
 
-    public void dequeue(){
-        if(front==rear){
+    public void dequeue() {
+        if (front == rear) {
             System.out.println("Queue is empty");
             return;
         }
         //shift elements from front+1 to rear-2(element before last element)
-        for(int i=front;i<rear-1;i++){
-            queue[i]=queue[i+1];
+        for (int i = front; i < rear - 1; i++) {
+            queue[i] = queue[i + 1];
         }
         rear--;
 
     }
 
-    public int front(){
-        if(front==rear){
+    public int front() {
+        if (front == rear) {
             System.out.println("Queue is empty");
             return -1;
         }
@@ -43,13 +44,12 @@ class Queue {
 
     }
 
-    public  void display(){
-        if(front==rear){
+    public void display() {
+        if (front == rear) {
             System.out.println("Empty queue");
-        }
-        else{
-            for(int i=front;i<rear;i++){
-                System.out.print(queue[i]+" ");
+        } else {
+            for (int i = front; i < rear; i++) {
+                System.out.print(queue[i] + " ");
             }
             System.out.println("");
         }
@@ -59,7 +59,7 @@ class Queue {
 public class QueueUsingArray {
     public static void main(String[] args) {
 
-        Queue q=new Queue(5);
+        Queue q = new Queue(5);
 
         q.Enqueue(1);
         q.Enqueue(2);

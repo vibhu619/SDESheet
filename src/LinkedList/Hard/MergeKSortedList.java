@@ -26,19 +26,18 @@ public class MergeKSortedList {
 
         Node[] arr = {head1, head2, head3, head4};
 
-        Node newhead=mergeKList(arr,arr.length);
+        Node newhead = mergeKList(arr, arr.length);
 
         i.printList(newhead);
     }
 
-    static Node mergeKList(Node[]arr,int k)
-    {
+    static Node mergeKList(Node[] arr, int k) {
         //Add your code here.
-        if( arr.length == 0 ) return null;
+        if (arr.length == 0) return null;
         Node newNode = arr[0];
-        for( int i=1 ; i < arr.length ; i++){
+        for (int i = 1; i < arr.length; i++) {
             Node temp = arr[i];
-            newNode = mergeList(temp , newNode);
+            newNode = mergeList(temp, newNode);
         }
 
         return newNode;

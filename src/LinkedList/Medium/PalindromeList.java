@@ -16,56 +16,55 @@ public class PalindromeList {
         head = i.addLast(4, head);
         head = i.addLast(5, head);
         i.printList(head);
-        
-        if(palindrome(head)){
+
+        if (palindrome(head)) {
             System.out.println("yes");
-        }
-        else{
+        } else {
             System.out.println("No");
         }
     }
 
     private static boolean palindrome(Node head) {
-        Node middle=middle(head);  //find middle point of list
-        Node prev=middle.next;   //second half will start after middle
-        Node temp=reverse(prev);   //reverse second half
-        middle.next=temp;   //and join reversed second half from middle
+        Node middle = middle(head);  //find middle point of list
+        Node prev = middle.next;   //second half will start after middle
+        Node temp = reverse(prev);   //reverse second half
+        middle.next = temp;   //and join reversed second half from middle
 
         //now start comparing each element of each half
-        Node start=head;
-        while(start!=null && temp!=null){   ///until anyone of it becomes null
-            if(start.data!=temp.data){
+        Node start = head;
+        while (start != null && temp != null) {   ///until anyone of it becomes null
+            if (start.data != temp.data) {
                 return false;
             }
-            start=start.next;
-            temp=temp.next;
+            start = start.next;
+            temp = temp.next;
         }
         return true;
     }
 
-    static Node middle(Node head){
-        Node slow=head;
-        Node fast=slow.next;
+    static Node middle(Node head) {
+        Node slow = head;
+        Node fast = slow.next;
 
-        while(fast!=null && fast.next!=null){
-            fast=fast.next.next;
-            slow=slow.next;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
         }
 
         return slow;
     }
 
-    static Node reverse(Node head){
-        Node prev=null;
-        Node curr=head;
+    static Node reverse(Node head) {
+        Node prev = null;
+        Node curr = head;
 
-        while(curr!=null){
-            Node next=curr.next;
+        while (curr != null) {
+            Node next = curr.next;
 
-            curr.next=prev;
+            curr.next = prev;
 
-            prev=curr;
-            curr=next;
+            prev = curr;
+            curr = next;
         }
         return prev;
     }

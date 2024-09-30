@@ -4,33 +4,28 @@ import java.util.Stack;
 
 public class paranthesisChecker {
     public static void main(String[] args) {
-        String x="({[]})";
-        if(paranthesis(x)){
+        String x = "({[]})";
+        if (paranthesis(x)) {
             System.out.println("Balanced");
-        }
-        else{
+        } else {
             System.out.println("Not Balanced");
         }
     }
 
     private static boolean paranthesis(String x) {
-        int n=x.length();
-        Stack<Character> stack=new Stack<>();
-        for(int i=0;i<n;i++){
-            if(x.charAt(i)=='{'){
+        int n = x.length();
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            if (x.charAt(i) == '{') {
                 stack.push('}');
-            }
-            else if(x.charAt(i)=='('){
+            } else if (x.charAt(i) == '(') {
                 stack.push(')');
-            }
-            else if((x.charAt(i)=='[')){
+            } else if ((x.charAt(i) == '[')) {
                 stack.push(']');
-            }
-            else{
-                if(!stack.empty() && x.charAt(i)==stack.peek()){
+            } else {
+                if (!stack.empty() && x.charAt(i) == stack.peek()) {
                     stack.pop();
-                }
-                else{
+                } else {
                     return false;
                 }
             }

@@ -1,4 +1,5 @@
 package String.Easy;
+
 //Given a string without spaces, the task is to remove duplicates from it.
 //
 //        Note: The original order of characters must be kept the same.

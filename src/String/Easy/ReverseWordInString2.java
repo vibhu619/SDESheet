@@ -9,7 +9,7 @@ public class ReverseWordInString2 {
         //TRICK -USING STRING SPLIT AND JOIN///
         String str[] = S.split("\\.");
         Collections.reverse(Arrays.asList(str));
-        String ss=String.join(".", str);
+        String ss = String.join(".", str);
         System.out.println(ss);
     }
 }

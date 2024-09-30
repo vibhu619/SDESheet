@@ -1,55 +1,49 @@
 package Stack.Queue.Easy;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
-class QueueNode
-{
+class QueueNode {
     int data;
     QueueNode next;
-    QueueNode(int a)
-    {
+
+    QueueNode(int a) {
         data = a;
         next = null;
     }
 }
 
 
-class MyQueue
-{
+class MyQueue {
     QueueNode front, rear;
 
     //Function to push an element into the queue.
-    void add(int a)
-    {
+    void add(int a) {
         // Your code here
-        QueueNode temp=new QueueNode(a);
-        if(rear==null){
-            front=rear=temp;
+        QueueNode temp = new QueueNode(a);
+        if (rear == null) {
+            front = rear = temp;
             return;
         }
-        rear.next=temp;
-        rear=temp;
+        rear.next = temp;
+        rear = temp;
     }
 
     //Function to pop front element from the queue.
-    int remove()
-    {
+    int remove() {
         // Your code here
-        if(rear==null){
+        if (rear == null) {
             return -1;
         }
-        QueueNode temp=front;
-        front=front.next;
-        if(front==null){
-            rear=null;
+        QueueNode temp = front;
+        front = front.next;
+        if (front == null) {
+            rear = null;
         }
         return temp.data;
     }
 }
+
 public class QueueUsingLinkedList {
     public static void main(String[] args) {
-        MyQueue q=new MyQueue();
+        MyQueue q = new MyQueue();
         q.add(1);
         q.add(2);
         q.add(3);

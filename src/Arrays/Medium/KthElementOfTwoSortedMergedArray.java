@@ -1,5 +1,7 @@
 package Arrays.Medium;
-//Given two sorted arrays arr1 and arr2 of size N and M respectively and an element K. The task is to find the element that would be at the kth position of the final sorted array.
+
+//Given two sorted arrays arr1 and arr2 of size N and M respectively and an element K.
+// The task is to find the element that would be at the kth position of the final sorted array.
 //
 //
 //        Example 1:
@@ -20,46 +22,45 @@ public class KthElementOfTwoSortedMergedArray {
         int[] arr1 = {2, 3, 6, 7, 9};
         int[] arr2 = {1, 4, 8, 10};
         int k = 5;
-        System.out.println(kthElement(arr1,arr2,arr1.length,arr2.length,k));
+        System.out.println(kthElement(arr1, arr2, arr1.length, arr2.length, k));
 
 
     }
 
     public static int kthElement(int arr1[], int arr2[], int n, int m, int k) {
-    //Logic without extra space
+        //Logic without extra space
         //Keep two pointers at head of each array
         //move both pointers and keep count how many elements have been sorted
 
-        int count=1;
-        int i=0;
-        int j=0;
-        int ans=-1;
-        while(i<n && j<m){
+        int count = 1;
+        int i = 0;
+        int j = 0;
+        int ans = -1;
+        while (i < n && j < m) {
             //if number of elements sorted is equal to k, we got the ans
-            if(count==k){
-                ans=Math.min(arr1[i],arr2[j]);
+            if (count == k) {
+                ans = Math.min(arr1[i], arr2[j]);
                 return ans;
             }
             //else move the pointers till we get the ans
-            if(arr1[i]<arr2[j]){
+            if (arr1[i] < arr2[j]) {
                 i++;
                 count++;
-            }
-            else if(arr1[i]>=arr2[j]){
+            } else if (arr1[i] >= arr2[j]) {
                 j++;
                 count++;
             }
 
         }
 
-        if(i<n){
-            i=i+(k-count);
-            ans=arr1[i];
+        if (i < n) {
+            i = i + (k - count);
+            ans = arr1[i];
 
         }
-        if(j<m){
-            j=j+(k-count);
-            ans=arr2[j];
+        if (j < m) {
+            j = j + (k - count);
+            ans = arr2[j];
 
         }
 

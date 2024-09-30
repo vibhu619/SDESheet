@@ -17,23 +17,22 @@ public class FloydCycle {
         head = i.addLast(7, head);
 
 
-        if(cycle(head)){
+        if (cycle(head)) {
             System.out.println("Yes there is cycle");
-        }
-        else{
+        } else {
             System.out.println("No cycle");
         }
 
     }
 
     private static boolean cycle(Node head) {
-        Node fast=head;
-        Node slow=head;
-        while(fast!=null && fast.next!=null){
-            fast=fast.next.next;
-            slow=slow.next;
+        Node fast = head;
+        Node slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
 
-            if(slow==fast){
+            if (slow == fast) {
                 return true;
             }
         }

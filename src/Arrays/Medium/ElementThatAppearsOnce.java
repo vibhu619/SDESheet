@@ -3,9 +3,9 @@ package Arrays.Medium;
 public class ElementThatAppearsOnce {
     public static void main(String[] args) {
         int arr[] = {1, 2, 2, 3, 3};
-        int n=arr.length;
+        int n = arr.length;
 
-        System.out.println(appearOnce(arr,n));
+        System.out.println(appearOnce(arr, n));
     }
 
     private static int appearOnce(int[] arr, int n) {
@@ -15,10 +15,10 @@ public class ElementThatAppearsOnce {
 
         int s = 0;
         int e = n - 1;
-        int ans=0;
+        int ans = 0;
         while (s <= e) {
             int mid = (s + e) / 2;
-            if(mid==n-1 || mid==0){
+            if (mid == n - 1 || mid == 0) {
                 System.out.println(arr[mid]);   //Index out of bound
                 break;
             }
@@ -26,26 +26,23 @@ public class ElementThatAppearsOnce {
                 if (arr[mid] == arr[mid - 1]) {
                     s = mid + 1;
                 } else if (arr[mid] == arr[mid + 1]) {
-                    e=mid-1;
-                }
-                else{
-                    ans= arr[mid];
+                    e = mid - 1;
+                } else {
+                    ans = arr[mid];
                     break;
                 }
 
-            }
-            else{
-                if(mid==0){
-                    ans=arr[mid];
+            } else {
+                if (mid == 0) {
+                    ans = arr[mid];
                     break;
                 }
                 if (arr[mid] == arr[mid - 1]) {
                     e = mid - 1;
                 } else if (arr[mid] == arr[mid + 1]) {
-                    s=mid+1;
-                }
-                else{
-                    ans= arr[mid];
+                    s = mid + 1;
+                } else {
+                    ans = arr[mid];
                     break;
                 }
 

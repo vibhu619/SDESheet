@@ -1,6 +1,10 @@
 package Stack.Queue.Medium;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+
 //Given an input stream A of n characters consisting only of lower case alphabets.
 //        While reading characters from the stream, you have to tell which character has appeared only
 //        once in the stream upto that point. If there are many characters that have appeared only once,
@@ -21,28 +25,27 @@ import java.util.*;
 //        'c' in the stream.
 public interface FirstNonRepitiveCharacter {
     public static void main(String[] args) {
-        String str="aabc";
+        String str = "aabc";
 
-        Map<Character,Integer> m=new HashMap<>();
-        Queue<Character> q=new LinkedList<>();
+        Map<Character, Integer> m = new HashMap<>();
+        Queue<Character> q = new LinkedList<>();
 
-        StringBuilder ans=new StringBuilder();
+        StringBuilder ans = new StringBuilder();
 
-        for(int i=0;i<str.length();i++){
-            char ch=str.charAt(i);
-            m.put(ch,m.getOrDefault(ch,0)+1);
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            m.put(ch, m.getOrDefault(ch, 0) + 1);
 
-            if(m.get(ch)==1){
+            if (m.get(ch) == 1) {
                 q.add(ch);
             }
 
-            while(!q.isEmpty() && m.get(q.peek())>1){
+            while (!q.isEmpty() && m.get(q.peek()) > 1) {
                 q.remove();
             }
-            if(q.isEmpty()){
+            if (q.isEmpty()) {
                 ans.append('#');
-            }
-            else{
+            } else {
                 ans.append(q.peek());
             }
         }

@@ -19,7 +19,7 @@ public class PairwiseSwapInLL {
         i.printList(head);
         System.out.println();
 
-        head=PairwiseSwap(head);
+        head = PairwiseSwap(head);
         i.printList(head);
 
     }
@@ -27,32 +27,32 @@ public class PairwiseSwapInLL {
     private static Node PairwiseSwap(Node head) {
 
         //If only one node or no node
-        if(head==null | head.next==null){
+        if (head == null | head.next == null) {
             return head;
         }
 
         //Initialise two pointers
-        Node prev=head;
-        Node curr=prev.next;
-        head=curr;  //mke second node as head because after first swap it will become head
+        Node prev = head;
+        Node curr = prev.next;
+        head = curr;  //mke second node as head because after first swap it will become head
 
-        while(true){
+        while (true) {
 
-            Node next=curr.next;  //keep reference  of curr'next in next
-            curr.next=prev;  //make connection from 2nd to 1st node in pair
+            Node next = curr.next;  //keep reference  of curr'next in next
+            curr.next = prev;  //make connection from 2nd to 1st node in pair
 
             // If next NULL or next is the last node
-            if(next==null || next.next==null){
-                prev.next=next;
+            if (next == null || next.next == null) {
+                prev.next = next;
                 break;
             }
 
             //make connection bw previous and a node ahead of next , as after next swap second element of second swap will be connected to first element of first swap
-            prev.next=next.next;
+            prev.next = next.next;
 
             //update prev and curr
-            prev=next;
-            curr=prev.next;
+            prev = next;
+            curr = prev.next;
         }
         return head;
     }

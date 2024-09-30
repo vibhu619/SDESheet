@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 
 public class ImplementigDeque {
     public static void main(String[] args) {
-        ArrayDeque<Integer> q=new ArrayDeque<>();
+        ArrayDeque<Integer> q = new ArrayDeque<>();
 
         q.addFirst(1);
         q.addFirst(2);
@@ -12,7 +12,7 @@ public class ImplementigDeque {
         q.addLast(3);
         System.out.println(q);
 
-        int r=q.removeFirst();
+        int r = q.removeFirst();
         System.out.println(r);
 
         System.out.println(q);

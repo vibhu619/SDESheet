@@ -1,4 +1,5 @@
 package String.Easy;
+
 //Given two strings a and b. The task is to find if the string 'b' can be obtained by rotating (in any direction) string 'a' by exactly 2 places.
 //
 //        Example 1:

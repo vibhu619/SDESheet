@@ -31,9 +31,9 @@ public class DeleteWithoutHead {
 
     private static void deleteNode(Node del) {
         //copy ek agge vali node to curr node
-        del.data=del.next.data;
+        del.data = del.next.data;
 
         //delete agge vala node
-        del.next=del.next.next;
+        del.next = del.next.next;
     }
 }

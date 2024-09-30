@@ -18,31 +18,31 @@ import java.util.Stack;
 //        since it doesn't exist, it is -1.
 public class NearestMaximum {
     public static void main(String[] args) {
-        long[] arr={1, 3, 2 ,4};
-        int n=arr.length;
-        long[] res=nextLargerElement(arr,n);
-        for(long x:res){
-            System.out.println(x+" ");
+        long[] arr = {1, 3, 2, 4};
+        int n = arr.length;
+        long[] res = nextLargerElement(arr, n);
+        for (long x : res) {
+            System.out.println(x + " ");
         }
 
     }
 
     private static long[] nextLargerElement(long[] arr, int n) {
-        Stack<Long> st=new Stack<>();
-        long[] res=new long[n];
+        Stack<Long> st = new Stack<>();
+        long[] res = new long[n];
 
         //Iterate array from backwards and pop top till stack is not empty and top element is smaller or equal to current element
-        for(int i=n-1;i>=0;i--){
-            while(!st.empty() && st.peek()<=arr[i]){
+        for (int i = n - 1; i >= 0; i--) {
+            while (!st.empty() && st.peek() <= arr[i]) {
                 st.pop();
             }
             //if stack empty then ans -1
-            if(st.empty()){
-                res[i]=-1;
+            if (st.empty()) {
+                res[i] = -1;
             }
             //else ans is top element
-            else{
-                res[i]=st.peek();
+            else {
+                res[i] = st.peek();
 
             }
             st.push(arr[i]);

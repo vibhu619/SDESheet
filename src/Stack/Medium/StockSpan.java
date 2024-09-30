@@ -24,37 +24,37 @@ import java.util.Stack;
 //        Hence the output will be 1 1 1 2 1 4 6.
 public class StockSpan {
     public static void main(String[] args) {
-        
-        int[] price={10, 4, 5, 90, 120, 80};
-        int[] res=stock(price,price.length);
-        for(int x:res){
-            System.out.println(x+ " ");
+
+        int[] price = {10, 4, 5, 90, 120, 80};
+        int[] res = stock(price, price.length);
+        for (int x : res) {
+            System.out.println(x + " ");
         }
     }
 
     private static int[] stock(int[] price, int n) {
-        int[] span=new int[n];
-        Stack<Integer> st=new Stack<>();
+        int[] span = new int[n];
+        Stack<Integer> st = new Stack<>();
         //store index of price in stack
         //store 0th index in stack as its answer is always 1
         st.push(0);
-        span[0]=1;
+        span[0] = 1;
         //iterate al prices from 1st index
-        for(int i=1;i<n;i++){
-            int currPrice=price[i];
+        for (int i = 1; i < n; i++) {
+            int currPrice = price[i];
             //find index of that price in stack which is bigger than current price
-            while(!st.empty() && currPrice>=price[st.peek()]){
+            while (!st.empty() && currPrice >= price[st.peek()]) {
                 st.pop();
             }
 
             //if stack becomes empty means all prices before current price was smaller than this, hence store i+1 in ans
-            if(st.empty()){
-                span[i]=i+1;
+            if (st.empty()) {
+                span[i] = i + 1;
             }
             //else , top of stack will have the index of that price hih is bigger than current price
-            else{
-                int prevIndex=st.peek();
-                span[i]=i-prevIndex;  //just sub those two index to get width
+            else {
+                int prevIndex = st.peek();
+                span[i] = i - prevIndex;  //just sub those two index to get width
             }
             st.push(i);
         }

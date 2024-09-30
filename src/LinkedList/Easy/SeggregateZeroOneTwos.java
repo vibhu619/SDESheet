@@ -20,30 +20,29 @@ public class SeggregateZeroOneTwos {
         System.out.println();
 
 
-        head=segregate(head);
+        head = segregate(head);
         i.printList(head);
 
     }
 
     private static Node segregate(Node head) {
-        int[] count={0,0,0};  //Iniitialise the array to store frequency
+        int[] count = {0, 0, 0};  //Iniitialise the array to store frequency
 
-        Node curr=head;
-        while(curr!=null){   //Iterate through LL
+        Node curr = head;
+        while (curr != null) {   //Iterate through LL
             count[curr.data]++;  //Store frequency
-            curr=curr.next;
+            curr = curr.next;
         }
 
-        curr=head;
-        int i=0;
-        while(curr!=null){
-            if(count[i]==0){   //if no frequency left for i, i++
+        curr = head;
+        int i = 0;
+        while (curr != null) {
+            if (count[i] == 0) {   //if no frequency left for i, i++
                 i++;
-            }
-            else{  //else replace da of current node with i and decrease frequency
-                curr.data=i;
+            } else {  //else replace da of current node with i and decrease frequency
+                curr.data = i;
                 count[i]--;
-                curr=curr.next;
+                curr = curr.next;
             }
         }
 

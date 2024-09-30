@@ -15,37 +15,36 @@ import java.util.Deque;
 //        3 3 4 5 5 5 6
 public class MaximumOfSubarray {
     public static void main(String[] args) {
-        int[] arr={1 ,2 ,3 ,1 ,4 ,5 ,2 ,3, 6};
-        int n=arr.length;
-        int k=3;
+        int[] arr = {1, 2, 3, 1, 4, 5, 2, 3, 6};
+        int n = arr.length;
+        int k = 3;
 
-        System.out.println(max_of_subarrays(arr,n,k));
+        System.out.println(max_of_subarrays(arr, n, k));
     }
 
-    static ArrayList <Integer> max_of_subarrays(int arr[], int n, int k)
-    {
+    static ArrayList<Integer> max_of_subarrays(int arr[], int n, int k) {
         // Your code here
 
         ArrayList<Integer> list = new ArrayList<>();
         Deque<Integer> dq = new ArrayDeque<>();
 
-        for(int i=0; i<n ; i++){
+        for (int i = 0; i < n; i++) {
 
             //remove any out of bounds
-            if(!dq.isEmpty() && dq.peek() == i-k){
+            if (!dq.isEmpty() && dq.peek() == i - k) {
                 dq.poll();
             }
 
             //remove samller element befor adding
 
-            while(!dq.isEmpty() && arr[dq.peekLast()] <= arr[i]){
+            while (!dq.isEmpty() && arr[dq.peekLast()] <= arr[i]) {
                 dq.pollLast();
             }
 
             //add i
             dq.offer(i);
 
-            if(i >= k-1){
+            if (i >= k - 1) {
                 list.add(arr[dq.peek()]);
             }
         }

@@ -2,6 +2,7 @@ package LinkedList.Hard;
 
 import LinkedList.ListOperations;
 import LinkedList.Node;
+
 //Reverse a Linked List in groups of given size
 //        HardAccuracy: 57.08%Submissions: 200K+Points: 8
 //        Be the comment of the day in POTD and win a GfG T-Shirt!
@@ -52,45 +53,45 @@ public class ReverseLinkedListWithKGroup {
         System.out.println("Linked list");
         i.printList(head);
         System.out.println();
-        int n=length(head);
-        head=reverse(head,4,n);
+        int n = length(head);
+        head = reverse(head, 4, n);
         i.printList(head);
         System.out.println();
     }
 
     private static int length(Node head) {
-        int n=0;
-        while(head!=null){
+        int n = 0;
+        while (head != null) {
             n++;
-            head=head.next;
+            head = head.next;
 
         }
         return n;
     }
 
-    private static Node reverse(Node curr, int k,int n) {
-        if(curr==null){
+    private static Node reverse(Node curr, int k, int n) {
+        if (curr == null) {
             return curr;
         }
-        Node prev=null;
-        Node temp=curr;
-        Node next=null;
-        int jump=0;
-        if(n>k)
-             jump=k;
+        Node prev = null;
+        Node temp = curr;
+        Node next = null;
+        int jump = 0;
+        if (n > k)
+            jump = k;
         else
-            jump=n;
+            jump = n;
 
-        while(jump>0){
-            next=curr.next;
-            curr.next=prev;
+        while (jump > 0) {
+            next = curr.next;
+            curr.next = prev;
 
-            prev=curr;
-            curr=next;
+            prev = curr;
+            curr = next;
             jump--;
         }
         //System.out.println(temp.data);
-        temp.next=reverse(next,k,n-k);
+        temp.next = reverse(next, k, n - k);
         return prev;
     }
 }
