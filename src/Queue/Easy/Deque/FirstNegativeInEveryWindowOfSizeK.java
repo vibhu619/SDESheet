@@ -1,4 +1,4 @@
-package Stack.Queue.Easy.Deque;
+package Queue.Easy.Deque;
 
 import java.util.ArrayDeque;
 

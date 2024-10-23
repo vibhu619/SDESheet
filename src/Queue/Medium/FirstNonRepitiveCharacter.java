@@ -1,4 +1,4 @@
-package Stack.Queue.Medium;
+package Queue.Medium;
 
 import java.util.HashMap;
 import java.util.LinkedList;

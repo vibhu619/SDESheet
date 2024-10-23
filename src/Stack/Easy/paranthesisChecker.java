@@ -13,23 +13,29 @@ public class paranthesisChecker {
     }
 
     private static boolean paranthesis(String x) {
-        int n = x.length();
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < n; i++) {
-            if (x.charAt(i) == '{') {
-                stack.push('}');
-            } else if (x.charAt(i) == '(') {
-                stack.push(')');
-            } else if ((x.charAt(i) == '[')) {
-                stack.push(']');
-            } else {
-                if (!stack.empty() && x.charAt(i) == stack.peek()) {
-                    stack.pop();
-                } else {
-                    return false;
-                }
-            }
+        int n=x.length();
+        Stack<Character> stack=new Stack<>();
+        for(int i=0;i<n;i++){
+            char ch=x.charAt(i);
 
+            if(ch=='{' || ch=='(' || ch=='['){  //if opening brackets, then push
+                stack.push(ch);
+            }
+            //if any closing bracket, then check the top element
+            //if a top element is corresponding opening bracket then pop
+            else if(ch==')' && stack.peek()=='('){
+                stack.pop();
+            }
+            else if(ch=='}' && stack.peek()=='{'){
+                stack.pop();
+            }
+            else if(ch==']' && stack.peek()=='['){
+                stack.pop();
+            }
+            //else not balanced
+            else{
+                return false;
+            }
         }
         return stack.empty();
     }

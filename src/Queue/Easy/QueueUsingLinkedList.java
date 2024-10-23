@@ -1,4 +1,4 @@
-package Stack.Queue.Easy;
+package Queue.Easy;
 
 class QueueNode {
     int data;

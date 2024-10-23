@@ -22,17 +22,17 @@ import java.util.ArrayList;
 //        stock on day 4 and sell it on day 6.
 public class SellAndBuyStock2 {
     public static void main(String[] args) {
-        int A[] = {100, 180, 260, 310, 40, 535, 695};
+        int A[] = {7,1,5,3,6,4};
         int n = A.length;
 
 
         ArrayList<Integer> buy = new ArrayList<>(); //to store local minima days on which we can buy
-        ArrayList<Integer> sell = new ArrayList<>();  //to store local maxima days where we can sell
+        ArrayList<Integer> sell = new ArrayList<>();  //to store local maxima days when we can sell
 
 
         boolean flag = false; //to keep track wether we r selling or buying, false=buying and true=selling
         for (int i = 0; i < n - 1; i++) {
-            if (flag == false && A[i] < A[i + 1]) { //local minima condition
+            if (!flag && A[i] < A[i + 1]) { //local minima condition
                 buy.add(i);
                 flag = true; //if bought now sell
             }

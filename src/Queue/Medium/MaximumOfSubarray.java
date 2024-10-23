@@ -1,4 +1,4 @@
-package Stack.Queue.Medium;
+package Queue.Medium;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

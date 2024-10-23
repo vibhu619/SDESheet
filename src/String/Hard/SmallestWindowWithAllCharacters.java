@@ -35,7 +35,7 @@ public class SmallestWindowWithAllCharacters {
             //3. Store count of each char of str in str hash array
             strHash[str.charAt(i)]++;
             //4. process to find valid substring is in process till the time we get count of character in str equal to pat.length
-            if (strHash[str.charAt(i)] <= patHash[str.charAt(i)]) { //if the char in str has count less or equal to count in pat
+            if (strHash[str.charAt(i)] == patHash[str.charAt(i)]) { //if the char in str has count equal to count in pat
                 count++;
             }
 
@@ -46,7 +46,7 @@ public class SmallestWindowWithAllCharacters {
                 // to minimize the window which has the smallest length with all pat's characters
                 while (strHash[str.charAt(start)] > patHash[str.charAt(start)] || patHash[str.charAt(start)] == 0) {
                     if (strHash[str.charAt(start)] > patHash[str.charAt(start)]) {
-                        strHash[str.charAt(start)]--;  //remove that char
+                        strHash[str.charAt(start)]--;  //reduce that char freq
                     }
                     start++;
                 }
